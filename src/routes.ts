@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import AuthTOken from './auth/authToken';
+import AuthToken from './auth/authToken';
 import UsersController from './controllers/usersController';
 
 const router = Router();
 
-const protectedRoute = new AuthTOken().protectedRoute;
+const protectedRoute = new AuthToken().protectedRoute;
 
-router.post("/login", new AuthTOken().login);
+router.post("/login", new AuthToken().login);
 router.get("/users", protectedRoute, new UsersController().handle);
 router.post("/users", protectedRoute,new UsersController().store);
 router.delete("/users/:id", protectedRoute, new UsersController().destroy);

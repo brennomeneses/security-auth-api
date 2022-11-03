@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --inspect -- index.ts",
-    "postinstall": "prisma generate"
+    "start": "ts-node index.ts",
+    "generate": "prisma migrate dev --name init",
+    "build": "tsc -p ."
   },
   "license": "MIT",
   "devDependencies": {
