@@ -8,7 +8,7 @@ const protectedRoute = new AuthToken().protectedRoute;
 
 router.post("/login", new AuthToken().login);
 router.get("/users", protectedRoute, new UsersController().handle);
-router.post("/users", protectedRoute,new UsersController().store);
+router.post("/users", new UsersController().store);
 router.delete("/users/:id", protectedRoute, new UsersController().destroy);
 
 export default router;
